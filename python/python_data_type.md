@@ -57,7 +57,7 @@
 
 **5.复数型(complex)**
 
-##列表
+##列表(list)
 - 列表由一系列按特定顺序排列的元素组成，用方括号([])来表示列表,并用逗号来分隔其中的元素
 
 **访问列表元素，索引从0而不是1开始**
@@ -86,15 +86,18 @@
 		>>> print motorcycles
 		['honda', 'yamaha', 'suzuki', 'ducati']
 		append只是在末尾添加元素
+		
 		在列表中插入元素用insert()
 		>>> motorcycles = ['honda', 'yamaha', 'suzuki']
 		>>> motorcycles.insert(0, 'ducati')
 		>>> print motorcycles
 		['ducati', 'honda', 'yamaha', 'suzuki']
 	删除
-		del方法----使用del语句将值从列表中删除后,你就无法再访问它了		>>> del motorcycles[0]
+		del方法----使用del语句将值从列表中删除后,你就无法再访问它了		
+		>>> del motorcycles[0]
 		>>> print motorcycles
 		['yamaha', 'suzuki']
+
 		pop()方法
 		1.删除列表的最后一个元素
 		>>> motorcycles.pop()
@@ -106,6 +109,7 @@
 		'honda'
 		>>> print motorcycles
 		['yamaha', 'suzuki']
+
 		remove()方法----删除第一个指定的值
 
 **组织列表(排序)**
@@ -117,6 +121,7 @@
 	>>> cars.sort()
 	>>> print cars
 	['audi', 'bmw', 'subaru', 'toyota']
+
 	反向排序----sort()传递参数reverse=True
 	>>> cars.sort(reverse=True)
 	>>> print cars
@@ -204,7 +209,7 @@
 	Martina
 	Michael
 	
-##元组
+##元组(tupe)
 
 - 不可变的列表被称为元组
 - 元组看起来犹如列表,但使用圆括号而不是方括号来标识
@@ -232,7 +237,7 @@
 	>>> print t
 	(12, 13, 14, 21, 22)
 	
-##字典
+##字典(dict)
 
 - 字典是另一种可变容器模型，且可存储任意类型对象
 - 字典的每个键值(key=>value)对用冒号(:)分割，每个对之间用逗号(,)分割，整个字典包括在花括号({})中 
@@ -262,7 +267,7 @@
 	>>> print dict
 	{'Age': 7, 'Class': 'First'}
 	
-##集合
+##集合(set)
 
 - 无序不重复元素的序列
 - 基本功能是进行成员关系测试和删除重复元素
