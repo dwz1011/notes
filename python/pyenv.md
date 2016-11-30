@@ -47,10 +47,10 @@
 > pyenv install 3.5.2
 
 设置全局python版本
-> pyenv global <python版本>
+> pyenv global \<python版本>
 
 设置局部python版本
-> pyenv local <python版本>
+> pyenv local \<python版本>
 
 创建虚拟环境 
 > pyenv virtualenv \<python版本> <环境name>
@@ -65,7 +65,7 @@
 > pyenv deactivate
 
 删除虚拟环境
-> pyenv uninstall <环境name>
+> pyenv uninstall \<环境name>
 
 
 
