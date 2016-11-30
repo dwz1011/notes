@@ -49,11 +49,11 @@
 设置全局python版本
 > pyenv global <python版本>
 
-设置局部python版本+
+设置局部python版本
 > pyenv local <python版本>
 
 创建虚拟环境 
-> pyenv virtualenv <python版本> <环境name>
+> pyenv virtualenv <python版本>  <环境name>
 
 列出当前虚拟环境 
 > pyenv virtualenvs
