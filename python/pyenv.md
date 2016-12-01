@@ -59,7 +59,7 @@
 > pyenv virtualenvs
 
 进入虚拟环境
-> pyenv activate
+> pyenv activate \<环境name>
 
 退出虚拟环境
 > pyenv deactivate
