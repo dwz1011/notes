@@ -199,6 +199,11 @@
 	将dwz用户添加到bigdata组
 	[root@hadoop001 ~]# usermod -a -G bigdata jepson
 	
+	给一个普通用户添加sudo权限
+	vi /etc/sudoers
+	#在 root  	ALL=(ALL)       ALL 下面添加一行
+	dwz  	ALL=(ALL)       ALL
+	
 **切换用户su**
 
 	[root@hadoop001 ~]# su - dwz
@@ -206,8 +211,15 @@
 	[dwz@hadoop001 ~]$ su -  
 	Password:  #输入root密码，切到root 	
 	
-	
-	
+**修改文件权限**
+
+	chmod  750 test.log    rwxr-x---
+	chmod -R 777 ruoze 
+	chown  dwz:dwz test.log
+	chown -R dwz:dwz ruoze
+	chmod/chown 
+	-R 递归  文件夹
+		
 	
 	
 	
