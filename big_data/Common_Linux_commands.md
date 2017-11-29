@@ -164,6 +164,51 @@
 
 	查看机器负载load	
 	
+**用户和用户组**
+	
+	用户
+	[root@hadoop001 ~]# ll /usr/sbin/user*
+	-rwxr-x---. 1 root root 103096 Dec  8  2011 /usr/sbin/useradd
+	-rwxr-x---. 1 root root  69560 Dec  8  2011 /usr/sbin/userdel
+	-rwxr-x---. 1 root root  98680 Dec  8  2011 /usr/sbin/usermod
+	创建用户
+	[root@hadoop001 ~]# useradd ruoze
+	创建已存在的用户
+	[root@hadoop001 ~]# useradd dwz
+	useradd: user 'dwz' already exists
+	[root@hadoop001 ~]# id ruoze
+	uid=515(ruoze) gid=515(ruoze) groups=515(ruoze)
+	给用户设置密码
+	[root@hadoop001 ~]# passwd ruoze
+	查看已有的用户
+	[root@hadoop001 ~]# ll /home/
+	total 8
+	drwx------. 27 jepson jepson 4096 Aug 13 14:31 dwz
+	drwx------.  4 ruoze  ruoze  4096 Aug 16 21:38 ruoze
+	
+	用户组
+	[root@hadoop001 ~]# ll /usr/sbin/group*
+	-rwxr-x---. 1 root root 54968 Dec  8  2011 /usr/sbin/groupadd
+	-rwxr-x---. 1 root root 46512 Dec  8  2011 /usr/sbin/groupdel
+	-rwxr-x---. 1 root root 50800 Dec  8  2011 /usr/sbin/groupmems
+	-rwxr-x---. 1 root root 61360 Dec  8  2011 /usr/sbin/groupmod
+	创建用户组
+	[root@hadoop001 ~]# groupadd bigdata
+	用户组的文件
+	[root@hadoop001 ~]# cat /etc/group
+	将dwz用户添加到bigdata组
+	[root@hadoop001 ~]# usermod -a -G bigdata jepson
+	
+**切换用户su**
+
+	[root@hadoop001 ~]# su - dwz
+ 	
+	[dwz@hadoop001 ~]$ su -  
+	Password:  #输入root密码，切到root 	
+	
+	
+	
+	
 	
 	
 	
