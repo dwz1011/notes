@@ -64,7 +64,7 @@
 		
 		# 设置环境变量
 		[root@hadoop-01 java]# vi /etc/profile
-		在最底下加入
+		# 在最底下加入
 		export JAVA_HOME=/usr/java/jdk1.8.0_45
 		export PATH=$JAVA_HOME/bin:$PATH
 		# 生效
@@ -81,25 +81,70 @@
 		# 解压
 		[root@hadoop-01 software]# unzip apache-maven-3.3.9-bin.zip
 		# 设置环境变量
-		[root@hadoop-01 java]# vi /etc/profile
+		[root@hadoop-01 software]# vi /etc/profile
 		export MAVEN_HOME=/opt/software/apache-maven-3.3.9
 		export MAVEN_OPTS="-Xms256m -Xmx512m"
 		export PATH=$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH
-		 
-		[root@hadoop-01 ~]# mvn -version
+		# 生效
+		[root@hadoop-01 software]# source /etc/profile
+		# 查看
+		[root@hadoop-01 software]# mvn -version
 		Apache Maven 3.3.9 (bb52d8502b132ec0a5a3f4c09453c07478323dc5; 2015-11-11T00:41:47+08:00)
 		Maven home: /opt/software/apache-maven-3.3.9
 		Java version: 1.8.0_45, vendor: Oracle Corporation
 		Java home: /usr/java/jdk1.8.0_45/jre
 		Default locale: en_US, platform encoding: UTF-8
 		OS name: "linux", version: "2.6.32-431.el6.x86_64", arch: "amd64", family: "unix"
+
+- Findbugs安装
 		
+		[root@hadoop-01 ~]# cd /opt/software/
+		[root@hadoop-01 software]# rz #上传findbugs-1.3.9.zip
+		# 解压
+		[root@hadoop-01 software]# unzip findbugs-1.3.9.zip
+		# 设置环境变量
+		[root@hadoop-01 software]# vi /etc/profile
+		export FINDBUGS_HOME=/opt/software/findbugs-1.3.9
+		export PATH=$FINDBUGS_HOME/bin:$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH
+		# 生效
+		[root@hadoop-01 software]# source /etc/profile
+		# 查看
+		[root@hadoop-01 software]# findbugs -version
+		1.3.9
 
+- protobuf安装
+		
+		[root@hadoop-01 ~]# cd /opt/software/
+		[root@hadoop-01 software]# rz #上传protobuf-2.5.0.tar.gz
+		# 解压
+		[root@hadoop-01 software]# tar -xzvf protobuf-2.5.0.tar.gz
+		[root@hadoop-01 software]# cd protobuf-2.5.0
+		[root@hadoop-01 protobuf-2.5.0]# yum install -y gcc gcc-c++ make cmake
+		[root@hadoop-01 protobuf-2.5.0]# ./configure --prefix=/usr/local/protobuf
+		[root@hadoop-01 protobuf-2.5.0]# make && make install
+		# 设置环境变量
+		[root@hadoop-01 java]# vi /etc/profile
+		export PROTOC_HOME=/usr/local/protobuf
+		export PATH=$PROTOC_HOME/bin:$FINDBUGS_HOME/bin:$MAVEN_HOME/bin:$JAVA_HOME/bin:$PATH
+		# 生效
+		[root@hadoop-01 protobuf-2.5.0]# source /etc/profile
+		# 查看
+		[root@hadoop-01 protobuf-2.5.0]# protoc --version
+		libprotoc 2.5.0
 
+- 其他依赖
 
+		yum install -y openssl openssl-devel svn ncurses-devel zlib-devel libtool
+		yum install -y snappy snappy-devel bzip2 bzip2-devel lzo lzo-devel lzop autoconf automake
 
+- 编译
 
+		[root@hadoop-01 sourcecode]# cd hadoop-2.8.1-src
+		[root@hadoop-01 sourcecode]# mvn clean package -Pdist,native -DskipTests -Dtar
 
+目录
+	
+	/opt/sourcecode/hadoop-2.8.1-src/hadoop-dist/target/hadoop-2.8.1.tar.gz
 
 
 
