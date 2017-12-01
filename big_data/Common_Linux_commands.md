@@ -6,7 +6,7 @@
 
 **cd**
 
-	cd  和 cd ~			   进用户的家目录 标识是~   /home/用户名称
+	cd  和 cd ~		       进用户的家目录 标识是~   /home/用户名称
 	cd /lib/alsa/init/ 		进目录
 	cd ../        			退回上一层目录
 	cd ../../     			退回上两层目录
@@ -39,23 +39,15 @@
 	
 **vi**
 
-	vi bigdata01.txt 进入命令模式
-	按i键 进入编辑模式
-	......
-	......
-	.....
-	按Esc键，退出编辑模式
-	按shift+: 进入尾行模式,输入wq 保存文件并关闭
-	
+	vi bigdata01.txt 	进入命令模式
 	gg			第一行第一个字母
 	G			最后一行第一个字母
 	shift+$ 	行的最后一个字母
 	dd			删除当前行
 	dG			删除光标以下的所有行
 	ndd			删除光标所在的向下n行
-	i 插入--> 编辑模式 
-	编辑模式:
-	ECS  退出-->尾行模式
+	i 			插入--> 编辑模式 
+	ECS  		退出编辑模式-->尾行模式
 	
 	尾行模式:
 	:q		退出
@@ -87,8 +79,9 @@
 	
 **rm**
 
+	删除文件或文件夹
 	rm 文件名称
-	rm -f 文件名称
+	rm -f 文件名称	
 	rm -r 文件夹
 	rm -rf 文件夹
 	
@@ -97,28 +90,18 @@
 	
 **ps/netstat**	
 
-	[root@hadoop001 ~]# ps -ef | grep ssh
-	root      1450     1  0 13:51 ?        00:00:00 /usr/sbin/sshd
-	root      1786  1450  0 13:52 ?        00:00:00 sshd: root@pts/0 
-	root     22104  1790  0 15:13 pts/0    00:00:00 grep ssh
-	
-	第一列 root 用户
-	第二列 pid  进程号
-	最后一列    ssh运行的命令
-	
-	[root@hadoop001 ~]# netstat -nlp | grep 1450
-	tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      1450/sshd           
-	tcp        0      0 :::22                       :::*                        LISTEN      1450/sshd 
-	
+	[root@hadoop-01 ~]# ps -ef | grep ssh
+
 	查看当前的进程的端口号
-	
-	问题: 665端口号 ,查进程号
-	netstat -nlp | grep 22
+	[root@hadoop-01 ~]# netstat -nlp | grep 1450
 	ps -ef | grep 1450
+	
+	根据端口号查看进程
+	netstat -nlp | grep 22
 	
 **搜索**
 
-	find / -name "ssh*" 全局搜索   (重要)
+	find / -name 'name' 		全局搜索
 
 	locate java
 	
@@ -126,12 +109,13 @@
 	
 **echo**
 	
-	echo "xxxx" 
-	echo "xxxx" > test.log
-	echo "xxxx" >> test.log
+	echo "xxxx" 							输出
+	echo "xxxx" > test.log				覆盖
+	echo "xxxx" >> test.log				追加
 	
 **wget**
-
+	
+	下载
 	wget http://ftp.iij.ad.jp/pub/db/mysql/Downloads/MySQL-5.6/mysql-5.6.35-linux-glibc2.5-x86_64.tar.gz 
 	
 **yum**
@@ -140,68 +124,61 @@
 
 **mv/cp**
 
+	mv 移动
+	cp 复制
+	
+	mv test.log test.log20170813 
 	mv 文件1/文件夹  文件11/文件夹
-	mv test.log test.log20170813   原文件不存在的
-	cp test.log20170813 test.log20170814   原文件存在的
+	  
+	cp test.log20170813 test.log20170814   	cp -r 文件1/文件夹  文件11/文件夹
+
 	
 **tar**
 
-	tar -czf test.tar.gz test.log 压缩
-	tar -xzvf test.tar.gz   解压
+	tar -czf test.tar.gz test.log 		压缩
+	tar -xzvf test.tar.gz   				解压
 	
 **磁盘 内存**
 
-	[root@hadoop001 ~]# df -h
-	Filesystem      Size  Used Avail Use% Mounted on
-	/dev/sda3        38G  3.2G   33G   9% /
-	tmpfs          1000M  228K 1000M   1% /dev/shm
-	/dev/sda1       124M   34M   84M  29% /boot
-	/dev/sr0        4.2G  4.2G     0 100% /media/CentOS_6.5_Final
-	[root@hadoop001 ~]# 
-	[root@hadoop001 ~]# 
-	[root@hadoop001 ~]# free -m
-	             total       used       free     shared    buffers     cached
-	Mem:          1998       1197        801          0        118        605
-	-/+ buffers/cache:        473       1525
-	Swap:         1999          0       1999	
-**top**
-
-	查看机器负载load	
+	查看磁盘大小及其使用情况
+	[root@hadoop-01 ~]# df -h
+	查看内存大小及其使用情况
+	[root@hadoop-01 ~]# free -m
 	
 **用户和用户组**
 	
 	用户
-	[root@hadoop001 ~]# ll /usr/sbin/user*
+	[root@hadoop-01 ~]# ll /usr/sbin/user*
 	-rwxr-x---. 1 root root 103096 Dec  8  2011 /usr/sbin/useradd
 	-rwxr-x---. 1 root root  69560 Dec  8  2011 /usr/sbin/userdel
 	-rwxr-x---. 1 root root  98680 Dec  8  2011 /usr/sbin/usermod
 	创建用户
-	[root@hadoop001 ~]# useradd ruoze
+	[root@hadoop-01 ~]# useradd ruoze
 	创建已存在的用户
-	[root@hadoop001 ~]# useradd dwz
+	[root@hadoop-01 ~]# useradd dwz
 	useradd: user 'dwz' already exists
-	[root@hadoop001 ~]# id ruoze
+	[root@hadoop-01 ~]# id ruoze
 	uid=515(ruoze) gid=515(ruoze) groups=515(ruoze)
 	给用户设置密码
-	[root@hadoop001 ~]# passwd ruoze
+	[root@hadoop-01 ~]# passwd ruoze
 	查看已有的用户
-	[root@hadoop001 ~]# ll /home/
+	[root@hadoop-01 ~]# ll /home/
 	total 8
 	drwx------. 27 jepson jepson 4096 Aug 13 14:31 dwz
 	drwx------.  4 ruoze  ruoze  4096 Aug 16 21:38 ruoze
 	
 	用户组
-	[root@hadoop001 ~]# ll /usr/sbin/group*
+	[root@hadoop-01 ~]# ll /usr/sbin/group*
 	-rwxr-x---. 1 root root 54968 Dec  8  2011 /usr/sbin/groupadd
 	-rwxr-x---. 1 root root 46512 Dec  8  2011 /usr/sbin/groupdel
 	-rwxr-x---. 1 root root 50800 Dec  8  2011 /usr/sbin/groupmems
 	-rwxr-x---. 1 root root 61360 Dec  8  2011 /usr/sbin/groupmod
 	创建用户组
-	[root@hadoop001 ~]# groupadd bigdata
+	[root@hadoop-01 ~]# groupadd bigdata
 	用户组的文件
-	[root@hadoop001 ~]# cat /etc/group
+	[root@hadoop-01 ~]# cat /etc/group
 	将dwz用户添加到bigdata组
-	[root@hadoop001 ~]# usermod -a -G bigdata jepson
+	[root@hadoop-01 ~]# usermod -a -G bigdata jepson
 	
 	给一个普通用户添加sudo权限
 	vi /etc/sudoers
@@ -210,9 +187,9 @@
 	
 **切换用户su**
 
-	[root@hadoop001 ~]# su - dwz
+	[root@hadoop-01 ~]# su - dwz
  	
-	[dwz@hadoop001 ~]$ su -  
+	[dwz@hadoop-01 ~]$ su -  
 	Password:  #输入root密码，切到root 	
 	
 **修改文件权限**
@@ -224,8 +201,9 @@
 	chmod/chown 
 	-R 递归  文件夹
 		
+**软连接**
 	
-	
+	ln -s 原始目录 目标目录
 	
 	
 	
