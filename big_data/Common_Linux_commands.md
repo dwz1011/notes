@@ -24,7 +24,7 @@
 	ls -l   		文件或文件夹详细列表
 	ll    			等价 ls -l
 	ll -a  			隐藏文件  以.为开头
-	ll -h  			大小
+	ll -h  			文件大小 
 	
 **查看文件内容**
 
@@ -32,6 +32,10 @@
 	more test.log		一页页往下翻
 	less test.log		一页页往上翻   
 	tail -F xxx.log 	实时查看log文件 
+	
+**查看文件(文件夹)的大小**
+	
+	du -sh filename
 	
 **vi**
 
