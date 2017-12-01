@@ -14,8 +14,8 @@
 	
 **hostname**
 
-	hostname         	查看机器名称  (带后缀)
-	hostname xxx  	 	设置机器名称
+	hostname         	查看机器名称
+	hostname xxx  	 	设置机器名称（临时）
 	hostname -i      	查看机器的IP
 
 **ls**
