@@ -140,7 +140,7 @@
 - 编译
 
 		[root@hadoop-01 sourcecode]# cd hadoop-2.8.1-src
-		[root@hadoop-01 sourcecode]# mvn clean package -Pdist,native -DskipTests -Dtar
+		[root@hadoop-01 hadoop-2.8.1-src]# mvn clean package -Pdist,native -DskipTests -Dtar
 
 目录
 	
