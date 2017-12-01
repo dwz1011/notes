@@ -76,8 +76,8 @@
 		
 - 配置文件
 
-		[hadoop@hadoop-01 ~]$ cd /opt/software/hadoop
-		[hadoop@hadoop-01 hadoop]$ vi etc/hadoop/core-site.xml
+		[hadoop@hadoop-01 ~]# cd /opt/software/hadoop
+		[hadoop@hadoop-01 hadoop]# vi etc/hadoop/core-site.xml
 		<configuration>
 		    <property>
 		        <name>fs.defaultFS</name>
@@ -85,7 +85,7 @@
 		    </property>
 		</configuration>
 		
-		[hadoop@hadoop-01 hadoop]$ vi etc/hadoop/hdfs-site.xml
+		[hadoop@hadoop-01 hadoop]# vi etc/hadoop/hdfs-site.xml
 		<configuration>
 		    <property>
 		        <name>dfs.replication</name>
@@ -98,28 +98,28 @@
 - 配置hadoop用户的ssh信任关系
 
 		# 公钥/密钥   配置无密码登录
-		[hadoop@hadoop-01 ~]$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-		[hadoop@hadoop-01 ~]$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-		[hadoop@hadoop-01 ~]$ chmod 0600 ~/.ssh/authorized_keys
+		[hadoop@hadoop-01 ~]# ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+		[hadoop@hadoop-01 ~]# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+		[hadoop@hadoop-01 ~]# chmod 0600 ~/.ssh/authorized_keys
 		
 		# 查看日期，看是否配置成功
-		[hadoop@hadoop-01 ~]$ ssh hadoop-01 date
+		[hadoop@hadoop-01 ~]# ssh hadoop-01 date
 		The authenticity of host 'hadoop-01 (192.168.137.130)' can't be established.
 		RSA key fingerprint is 09:f6:4a:f1:a0:bd:79:fd:34:e7:75:94:0b:3c:83:5a.
 		Are you sure you want to continue connecting (yes/no)? yes   # 第一次回车输入yes
 		Warning: Permanently added 'hadoop-01,192.168.137.130' (RSA) to the list of known hosts.
 		Sun Aug 20 14:22:28 CST 2017
 		
-		[hadoop@hadoop-01 ~]$ ssh hadoop-01 date   #不需要回车输入yes,即OK
+		[hadoop@hadoop-01 ~]# ssh hadoop-01 date   #不需要回车输入yes,即OK
 		Sun Aug 20 14:22:29 CST 2017
 		
-		[hadoop@hadoop-01 ~]$ ssh localhost date
+		[hadoop@hadoop-01 ~]# ssh localhost date
 		The authenticity of host 'hadoop-01 (192.168.137.130)' can't be established.
 		RSA key fingerprint is 09:f6:4a:f1:a0:bd:79:fd:34:e7:75:94:0b:3c:83:5a.
 		Are you sure you want to continue connecting (yes/no)? yes   # 第一次回车输入yes
 		Warning: Permanently added 'hadoop-01,192.168.137.130' (RSA) to the list of known hosts.
 		Sun Aug 20 14:22:28 CST 2017
-		[hadoop@hadoop-01 ~]$ ssh localhost date   #不需要回车输入yes,即OK
+		[hadoop@hadoop-01 ~]# ssh localhost date   #不需要回车输入yes,即OK
 		Sun Aug 20 14:22:29 CST 2017
 
 - 格式化和启动
@@ -129,7 +129,7 @@
 		ERROR:
 			hadoop-01: Error: JAVA_HOME is not set and could not be found.			localhost: Error: JAVA_HOME is not set and could not be found.
 		解决方法:添加环境变量
-		[hadoop@hadoop-01 hadoop]$  vi etc/hadoop/hadoop-env.sh
+		[hadoop@hadoop-01 hadoop]#  vi etc/hadoop/hadoop-env.sh
 		# 将export JAVA_HOME=${JAVA_HOME}改为
 		export JAVA_HOME=/usr/java/jdk1.8.0_45
 		
@@ -149,13 +149,53 @@
 
 - 检查是否成功
 
-		[hadoop@hadoop-01 hadoop]$ jps
+		[hadoop@hadoop-01 hadoop]# jps
 		19536 DataNode
 		19440 NameNode
 		19876 Jps
 		19740 SecondaryNameNode
 	
 访问： http://192.168.137.130:50070
+
+- 修改dfs启动的进程，以hadoop-01启动
+
+		启动的三个进程：
+		namenode: hadoop-01    bin/hdfs getconf -namenodes
+		datanode: localhost    datanodes (using default slaves file)   etc/hadoop/slaves
+		secondarynamenode: 0.0.0.0
+		
+		[hadoop@hadoop-01 ~]# cd /opt/software/hadoop
+		[hadoop@hadoop-01 hadoop]# echo  "hadoop-01" > ./etc/hadoop/slaves 
+		[hadoop@hadoop-01 hadoop]# cat ./etc/hadoop/slaves 
+		hadoop-01
+		
+		[hadoop@hadoop-01 hadoop]# vi ./etc/hadoop/slaves/hdfs-site.xml
+		<property>
+			<name>dfs.namenode.secondary.http-address</name>
+			<value>hadoop-01:50090</value>
+		</property>
+		<property>
+			<name>dfs.namenode.secondary.https-address</name>
+			<value>hadoop-01:50091</value>
+		</property>
+		
+		# 重启
+		[hadoop@hadoop-01 hadoop]# sbin/stop-dfs.sh
+		[hadoop@hadoop-01 hadoop]# sbin/start-dfs.sh
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	
