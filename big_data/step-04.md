@@ -19,14 +19,14 @@
 		
 - Hadoop1.x
 
-		hdfs: 分布式文件管理系统				    存储
-		mapreduce1: 执行引擎  				    计算+资源、作业调度
+		hdfs: 分布式文件管理系统				     存储
+		mapreduce1: 执行引擎  				计算+资源、作业调度
 				
 - Hadoop2.x三大组件
 
-		hdfs: 分布式文件管理系统				    存储
+		hdfs: 分布式文件管理系统			存储
 		mapreduce2: 执行引擎                   计算
-		yarn: 资源(memory cpu)和作业调度平台	    资源
+		yarn: 资源(memory cpu)和作业调度平台	资源
 		
 ### Hadoop编译
 	
