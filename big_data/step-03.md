@@ -37,7 +37,7 @@
 	
 ### Create /etc/my.cnf(640)
 
-	[root@hadoop-01 mysql]# cd /etc/my.cnf
+	[root@hadoop-01 mysql]# vi /etc/my.cnf
 	删除内容，并将以下内容复制进去
 	[client]
 	port            = 3306
