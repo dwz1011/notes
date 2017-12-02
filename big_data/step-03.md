@@ -206,8 +206,12 @@
 	
 	mysql> update user set password=password('password') where user='root';
 
-	
-	
+### Configure environment variables
+	[mysqladmin@hadoop-01 ~]$ vi ./.bash_profile
+	# insert
+	export MYSQL_HOME=/usr/local/mysql
+	export PATH=$MYSQL_HOME/bin:$PATH
+	[mysqladmin@hadoop-01 ~]$ source ./.bash_profile	
 	
 	
 	
