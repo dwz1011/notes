@@ -7,7 +7,7 @@
 **cd**
 
 	cd  和 cd ~		        进用户的家目录 标识是~   /home/用户名称
-	cd [表情]b/alsa/init/ 		进目录
+	cd /etc				进目录
 	cd ../        			退回上一层目录
 	cd ../../     			退回上两层目录
 	cd -          			退回上一次的目录
@@ -172,7 +172,7 @@
 	-rwxr-x---. 1 root root  69560 Dec  8  2011 /usr/sbin/userdel
 	-rwxr-x---. 1 root root  98680 Dec  8  2011 /usr/sbin/usermod
 	创建用户
-	[root@hadoop-01 ~]# useradd ruoze
+	[root@hadoop-01 ~]# useradd dwz01
 	创建已存在的用户
 	[root@hadoop-01 ~]# useradd dwz
 	useradd: user 'dwz' already exists
