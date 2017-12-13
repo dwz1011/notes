@@ -30,7 +30,7 @@
 		[root@hadoop-01 ~]# useradd hadoop
 		[root@hadoop-01 ~]# vi /etc/sudoers
 		# 找到root 	ALL=(ALL) 	ALL，添加
-		hadoop 	ALL=(ALL)       ALL
+		hadoop 	ALL=(ALL)       NOPASSWD:ALL
 	
 - 上传并解压
 
@@ -48,8 +48,10 @@
 		[root@hadoop-01 software]# source /etc/profile
 		
 - 设置用户用户组	
-	
+		
+		[root@hadoop-01 software]# chown -R hadoop:hadoop hadoop
 		[root@hadoop-01 software]# chown -R hadoop:hadoop hadoop/*
+		[root@hadoop-01 software]# chown -R hadoop:hadoop hadoop-2.8.1
 				
 		[root@hadoop-01 software]# cd hadoop
 		[root@hadoop-01 hadoop]# rm -f *.txt
@@ -140,7 +142,6 @@
 		[hadoop@hadoop-01 hadoop]# exit
 		[root@hadoop-01 hadoop]# cd ../
 		[root@hadoop-01 software]# chown -R hadoop:hadoop hadoop-2.8.1
-		[root@hadoop-01 software]# chown -R hadoop:hadoop hadoop-2.8.1/*
 		[root@hadoop-01 software]# su - hadoop
 		[root@hadoop-01 ~]# cd /opt/software/hadoop
 		
