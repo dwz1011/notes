@@ -170,7 +170,7 @@
 		[hadoop@hadoop-01 hadoop]# cat ./etc/hadoop/slaves 
 		hadoop-01
 		
-		[hadoop@hadoop-01 hadoop]# vi ./etc/hadoop/slaves/hdfs-site.xml
+		[hadoop@hadoop-01 hadoop]# vi ./etc/hadoop/hdfs-site.xml
 		<property>
 			<name>dfs.namenode.secondary.http-address</name>
 			<value>hadoop-01:50090</value>
