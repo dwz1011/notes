@@ -14,7 +14,7 @@
   
   sudo service mysql start
     
-####检查mysql是否安装成功
+#### 检查mysql是否安装成功
   
     sudo netstat -ant | grep 3306
     或sudo ps -ef|grep mysql
@@ -23,7 +23,7 @@
   
   sudo service mysql stop
     
-####登录mysql
+#### 登录mysql
 
     sudo mysql -u root (-p -h -P)
     *  -u表示选择登录的用户名
@@ -38,7 +38,7 @@
     	
     
     
-##mysql的简单操作
+## mysql的简单操作
 显示数据库
 >show databases;
 
