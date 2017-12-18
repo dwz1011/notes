@@ -1,18 +1,18 @@
-#postgresql
+# postgresql
 
-###创建用户
+### 创建用户
 	
 	CREATE USER 'username' WITH PASSWORD 'rdyhdenali' SUPERUSER ;
 	
-###创建databaase
+### 创建databaase
 	
 	CREATE DATABASE dbname WITH OWNER=postgres;
 	
-###连接数据库
+### 连接数据库
 
 	psql -h hostname -U username -d postgres -p post -W password 
 	
-###基本命令
+### 基本命令
 
 	➜  ~ createdb test
 	➜  ~ psql -d test
@@ -34,7 +34,7 @@
 	test=# \dt 查看当前database的当前搜索路径下schema的表
 	test=# SELECT * FROM pg_stat_activity;  查看当前对数据库的所有操作进程
 	
-###基本的数据库操作，就是使用一般的SQL语言。 
+### 基本的数据库操作，就是使用一般的SQL语言。 
 
 - 创建新表 
 
@@ -80,7 +80,7 @@
 		
 		DROP TABLE IF EXISTS backup_tbl; 
 		
-###配置search_path路径,为了能够找到schema的表等
+### 配置search_path路径,为了能够找到schema的表等
 
 - 查看当前的schema值
 
@@ -113,7 +113,7 @@
 		
 		postgres=# drop schema test;
 		
-###数据的导入导出
+### 数据的导入导出
 
 - 导出
 
