@@ -1,6 +1,6 @@
-#Docker
+# Docker
 
-###为什么要使用Docker
+### 为什么要使用Docker
 
 **1.更快速的交付与部署**
 
@@ -10,7 +10,7 @@
 
 **4.更简单的管理**
 
-###基本概念
+### 基本概念
 
 **镜像(Image)** ----一个只读模板
 
@@ -18,7 +18,7 @@
 
 **仓库(Repository)** ----集中存放镜像文件的场所
 
-###常用命令
+### 常用命令
 
 **列出本地镜像`docker images`**
 
@@ -55,10 +55,14 @@
 	
 若不指定具体的标记，则默认使用latest标记信息
 
-####命令
+#### 命令
 	
-	docker version       查看Docker的版本信息	docker build         从一个Dockerfile创建一个镜像	docker history <ID>  显示一个镜像的历史	docker images        列出存在的镜像
-	docker info          显示一些相关的系统信息	docker inspect <ID>  显示一个容器的底层具体信息
+	docker version       查看Docker的版本信息
+	docker build         从一个Dockerfile创建一个镜像
+	docker history <ID>  显示一个镜像的历史
+	docker images        列出存在的镜像
+	docker info          显示一些相关的系统信息
+	docker inspect <ID>  显示一个容器的底层具体信息
 	docker run           创建一个新容器,并在其中运行给定命令
 	docker attach        进入到一个正在运行的容器中
 		进入正在运行的容器的方法：
@@ -66,7 +70,8 @@
 			2.ssh root@<ID>
 			3.先拿到进程的PID，然后nsenter --target <PID> --mount --uts --ipc --net --pid
 			4.docker exec [options] <ID> /bin/bash
-	docker start <ID>    启动一个容器	docker ps            列出容器
+	docker start <ID>    启动一个容器
+	docker ps            列出容器
 		-a, --all            显示所有容器
 		-f
 		-n
@@ -84,11 +89,26 @@
 	
 	
 	docker import        导入一个文件(典型为tar包)路径戒目录来创建一个镜像
-	docker commit        从一个容器的修改中创建一个新的镜像	docker cp            从容器中复制文件到宿主系统中	docker diff          检查一个容器文件系统的修改	docker events        从服务端获取实时的事件	docker export        导出容器内容为一个tar包
-	docker load          从一个tar包中加载一个镜像	docker login         注册戒登录到一个Docker的仏库服务器	docker logout        从Docker的仓库服务器登出	docker pause         暂停一个容器中的所有迕程	docker port          查找一个nat到一个私有网口的公共口	docker pull          从一个Docker的仓库服务器下拉一个镜像或仓库	docker push          将一个镜像或者仓库推送到一个Docker的注册服务器	docker save          保存一个镜像为tar包文件	docker search        在Docker index中搜索一个镜像	docker tag           为一个镜像打标签	docker unpause       将一个容器内所有的迕程从暂停状态中恢复	docker wait          阻塞直到一个容器终止,然后输出它的退出符
+	docker commit        从一个容器的修改中创建一个新的镜像
+	docker cp            从容器中复制文件到宿主系统中
+	docker diff          检查一个容器文件系统的修改
+	docker events        从服务端获取实时的事件
+	docker export        导出容器内容为一个tar包
+	docker load          从一个tar包中加载一个镜像
+	docker login         注册戒登录到一个Docker的仏库服务器
+	docker logout        从Docker的仓库服务器登出
+	docker pause         暂停一个容器中的所有迕程
+	docker port          查找一个nat到一个私有网口的公共口
+	docker pull          从一个Docker的仓库服务器下拉一个镜像或仓库
+	docker push          将一个镜像或者仓库推送到一个Docker的注册服务器
+	docker save          保存一个镜像为tar包文件
+	docker search        在Docker index中搜索一个镜像
+	docker tag           为一个镜像打标签
+	docker unpause       将一个容器内所有的迕程从暂停状态中恢复
+	docker wait          阻塞直到一个容器终止,然后输出它的退出符
 	
 	
-####利用Dockerfile来创建镜像
+#### 利用Dockerfile来创建镜像
 
 **`docker build`**
 

@@ -1,6 +1,6 @@
-#SQL语法(mysql)
+# SQL语法(mysql)
 
-###一、数据库操作:
+### 一、数据库操作:
 **1.查看数据库**
 
 	mysql> show databases;
@@ -19,7 +19,7 @@
 
 	drop database db_name;
 	
-###二、表的操作
+### 二、表的操作
 **1.创建表**
 
 	CREATE TABLE tb_name(
@@ -86,7 +86,7 @@
 
 	ALTER TABLE tb_name ADD[CHANGE,RENAME,DROP] ...要更改的内容...
 
-###三、数据的增删改查
+### 三、数据的增删改查
 
 **1.插入数据**
 
