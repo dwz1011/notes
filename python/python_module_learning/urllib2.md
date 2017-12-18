@@ -2,7 +2,7 @@
 
 [官方文档](https://docs.python.org/2/library/urllib2.html)
 
-###urlopen
+### urlopen
 
 	urlopen(url, data, timeout,....)
 	
@@ -25,7 +25,7 @@
 - **getcode()**	返回响应的HTTP状态代码
 - **read()**		返回整个html
 
-###HTTPError
+### HTTPError
 
 处理HTTP错误
 
@@ -41,7 +41,7 @@
 	    print e.getcode()
 	    print e.geturl()
 	    
-###Request
+### Request
 
 urlopen 还可以使用request对象来作为参数，首先要通过Resquest类来创建一个request对象
 	
@@ -81,7 +81,7 @@ urlopen 还可以使用request对象来作为参数，首先要通过Resquest类
 - is_unverifiable()	
 
 	
-##Openers和Handlers
+## Openers和Handlers
 
 当获取一个URL，使用一个opener(一个urllib2.OpenerDirector的实例，urllib2.OpenerDirector可能名字可能有点让人混淆。)，正常情况下，我们使用默认opener -- 通过urlopen,但能够创建个性的openers，Openers使用处理器handlers，所有的“繁重”工作由handlers处理。每个handlers知道如何通过特定协议打开URLs，或者如何处理URL打开时的各个方面，例如HTTP重定向或者HTTP cookies。
 如果你希望用特定处理器获取URLs你会想创建一个openers，例如获取一个能处理cookie的opener，或者获取一个不重定向的opener。
@@ -103,7 +103,7 @@ Opener对象有一个open方法，该方法可以像urlopen函数那样直接用
 	等同于：
 	response = urllib2.urlopen('http://www.baidu.com')
 
-###OpenerDirector
+### OpenerDirector
 
 实例方法：
 
@@ -119,7 +119,7 @@ Opener对象有一个open方法，该方法可以像urlopen函数那样直接用
 
 **3.error**
 
-####OpenerDirector的操作类
+#### OpenerDirector的操作类
 
 一个管理很多处理类（Handler）的类，这些Handler类都对应处理相应的协议，或者特殊功能
 

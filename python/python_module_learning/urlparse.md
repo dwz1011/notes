@@ -1,4 +1,4 @@
-#urlparse学习
+# urlparse学习
 
 - urlparse模块主要是把url拆分为6部分，并返回元组
 - 可以把拆分后的部分再组成一个url
