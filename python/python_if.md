@@ -1,6 +1,6 @@
-#python之if语句
+# python之if语句
 
-###通用格式
+### 通用格式
 	
 	if <test1>:
 		<do something>
@@ -64,7 +64,7 @@ else:
 >>> hello
 ```
 
-###if-else多种写法
+### if-else多种写法
 例：
 
 ```
