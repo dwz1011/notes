@@ -68,7 +68,8 @@
 		drwxr-xr-x   - hadoop supergroup          0 2017-12-19 11:44 /dwz01
 		-rw-r--r--   1 hadoop supergroup          6 2017-12-19 11:18 /test.log
 		drwx------   - hadoop supergroup          0 2017-12-14 15:17 /tmp
-		drwxr-xr-x   - hadoop supergroup          0 2017-12-14 15:17 /user		B.不进入回收站
+		drwxr-xr-x   - hadoop supergroup          0 2017-12-14 15:17 /user
+		B.不进入回收站
 		[hadoop@hadoop-01 hadoop]$ hadoop fs -rm -r -f -skipTrash /test.log
 		Deleted /test.log
 		[hadoop@hadoop-01 hadoop]$ hadoop fs -ls
