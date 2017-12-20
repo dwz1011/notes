@@ -4,13 +4,30 @@
 
 部门表(dept)
 
+	deptno部门编号
+	dname部门名称
+	loc地点
+
 ![dept](./pic/部门表.png)
 
 工资等级表(salgrade)
 
+	grade 等级
+	losal此等级的最低
+	hisal此等级的最高
+
 ![salgrade](./pic/工资等级表.png)
 
 员工表(emp)
+
+	empno员工号
+	ename员工姓名
+	job工作
+	mgr上级编号
+	hiredate受雇日期
+	sal薪金
+	comm佣金
+	deptno部门编号
 
 ![emp](./pic/员工表.png)
 
