@@ -1,7 +1,5 @@
 # MapReduce架构设计
 
-`---->MapReduce提交到Yarn的工作流程、Yarn的工作流程、Yarn的架构设计`
-
 ### MapReduce1架构设计
 
 ![MapReduce1架构设计图](./pic/MapReduce1架构设计图.png)
