@@ -5,7 +5,7 @@
 1. 需要安装Maven
 
 	在Hadoop编译的时候已经安装了，参考
-	![Maven安装](./Maven安装.png)
+	![Maven安装](./pic/Maven安装.png)
 
 2. 下载spark的tar包，并解压
 
