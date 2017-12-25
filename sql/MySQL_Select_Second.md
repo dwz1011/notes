@@ -1,12 +1,13 @@
 # MySQL查询之学生成绩表
 
-	现有一张学生表(id----编号,
-				name----姓名,
-				chinese----语文,
-				mathematics----数学,
-				english----英语,
-				class----班级
-				)
+	现有一张学生表(
+		     id----编号,
+		     name----姓名,
+		     chinese----语文,
+		     mathematics----数学,
+		     english----英语,
+		     class----班级
+		)
 
 ![学生表students](./pic/students.png)
 
