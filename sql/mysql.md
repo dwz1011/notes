@@ -16,7 +16,7 @@
 
 - 编译安装
 
-	[参考](../big_data/step-03.md)
+	[参考](../big_data/Hadoop_Env_Install/step-03.md)
     
     
 #### 启动mysql
