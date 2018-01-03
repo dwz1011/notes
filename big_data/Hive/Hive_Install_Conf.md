@@ -1,5 +1,33 @@
 # Hive安装及部署
 
+- Hive的产生背景 
+
+		1) MR编程不便性
+		2) 传统RDBMS人员的需要
+
+- Hive是构建在Hadoop之上的数据仓库
+	
+		数据存储在HDFS之上
+		计算是使用MR
+		弹性：线性扩展
+		
+- Hive底层的执行引擎：MapReduce、Tez、Spark
+
+- Hive常用于：离线批处理
+
+- 为什么要使用Hive
+
+		1) 简单易用
+		2) 弹性
+		3) 统一的元数据管理
+
+
+
+-----------------------------------------------------------------------
+
+
+
+
 1. 下载hive-1.1.0-cdh5.7.0.tar.gz，并解压
 
 		[hadoop@hadoop-01 software]$ wget http://archive.cloudera.com/cdh5/cdh/5/hive-1.1.0-cdh5.7.0.tar.gz
