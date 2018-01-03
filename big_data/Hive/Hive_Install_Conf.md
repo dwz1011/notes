@@ -20,35 +20,38 @@
 		# 修改HADOOP_HOME
 		HADOOP_HOME=/home/hadoop/app/hadoop-2.6.0-cdh5.7.0
 		
-		# 新建hive-site.xml
-		[hadoop@hadoop-01 conf]$ touch hive-site.xml
-		[hadoop@hadoop-01 conf]$ vi hive-site.xml
-		<?xml version="1.0"?>
-		<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-		 
-		<configuration>   
-		    <property>
-		        <name>javax.jdo.option.ConnectionURL</name>
-		        <value>jdbc:mysql://localhost:3306/ruoze_hive?createDatabaseIfNotExist=true</value>
-		    </property>
-		 
-		    <property>
-		        <name>javax.jdo.option.ConnectionDriverName</name>
-		        <value>com.mysql.jdbc.Driver</value>
-		    </property>
-		 
-		    <property>
-		        <name>javax.jdo.option.ConnectionUserName</name>
-		        <value>root</value>
-		    </property>
-		 
-		    <property>
-		        <name>javax.jdo.option.ConnectionPassword</name>
-		        <value>root</value>   // 这里的用户和密码要与MySQL的一直
-		    </property>
-		</configuration>
-		
-		拷贝mysql驱动到$HIVE_HOME/lib/
+	- 默认情况下，Hive元数据保存在内嵌的`Derby`数据库中，只能允许一个会话连接，只适合简单的测试
+	- 为了支持多用户多会话，则需要一个独立的元数据库，我们使用`MySQL`作为元数据库
+	
+			# 新建hive-site.xml
+			[hadoop@hadoop-01 conf]$ touch hive-site.xml
+			[hadoop@hadoop-01 conf]$ vi hive-site.xml
+			<?xml version="1.0"?>
+			<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+			 
+			<configuration>   
+			    <property>
+			        <name>javax.jdo.option.ConnectionURL</name>
+			        <value>jdbc:mysql://localhost:3306/ruoze_hive?createDatabaseIfNotExist=true</value>
+			    </property>
+			 
+			    <property>
+			        <name>javax.jdo.option.ConnectionDriverName</name>
+			        <value>com.mysql.jdbc.Driver</value>
+			    </property>
+			 
+			    <property>
+			        <name>javax.jdo.option.ConnectionUserName</name>
+			        <value>root</value>
+			    </property>
+			 
+			    <property>
+			        <name>javax.jdo.option.ConnectionPassword</name>
+			        <value>root</value>   // 这里的用户和密码要与MySQL的一直
+			    </property>
+			</configuration>
+			
+		拷贝MySQL驱动包(`mysql-connector-java.jar`)到`$HIVE_HOME/lib/`
 		
 		
 **遇到的问题**
