@@ -26,7 +26,7 @@
 -----------------------------------------------------------------------
 
 
-
+### 安装及部署
 
 1. 下载hive-1.1.0-cdh5.7.0.tar.gz，并解压
 
@@ -75,7 +75,7 @@
 			 
 			    <property>
 			        <name>javax.jdo.option.ConnectionPassword</name>
-			        <value>root</value>   // 这里的用户和密码要与MySQL的一直
+			        <value>root</value>   // 这里的用户和密码要与MySQL的一致
 			    </property>
 			</configuration>
 			
