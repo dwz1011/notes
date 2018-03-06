@@ -1,8 +1,11 @@
 # Hive 错误集
 
 ### 1. 创建表没问题，加载数据失败
+
 ![1](./pic/error-1.png)
+
 查看日志发现
+
 ![2](./pic/logs1-1.png)
 
 猜想可能datanode没有启动，jps查看
@@ -20,6 +23,7 @@
 - 重启hadoop
 
 再次加载数据，成功
+
 ![suecss](./pic/ok-1.png)
 
 
