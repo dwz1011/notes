@@ -6,6 +6,7 @@
 ![2](./pic/logs1-1.png)
 
 猜想可能datanode没有启动，jps查看
+
 ![3](./pic/jps-1.png)
 
 果然datanode没有启动起来
