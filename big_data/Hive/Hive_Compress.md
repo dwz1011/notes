@@ -16,9 +16,9 @@
 |DEFLATE| N/A | DEFLATE|.deflate|   No       |org.apache.hadoop.io.compress.DefaultCodec|
 | gzip | gzip | DEFLATE|  .gz   |   No       |org.apache.hadoop.io.compress.GzipCodec|
 | bzip2| bzip2| bzip2  |  .bz2  |   Yes      |org.apache.hadoop.io.compress.BZip2Codec|
-| LZO  | Lzop | LZO    |  .lzo  |   No       |com.hadoop.compression.lzo.LzoCodec|
+| LZO  | Lzop | LZO    |  .lzo  |Yes(if index)|com.hadoop.compression.lzo.LzoCodec|
 | LZ4  | N/A  | LZ4    |  .lz4  |   No       |org.apache.hadoop.io.compress.Lz4Codec|
-|Snappy| N/A  | Snappy | .snappy|Yes(if index)|org.apache.hadoop.io.compress.SnappyCodec|
+|Snappy| N/A  | Snappy | .snappy|   No       |org.apache.hadoop.io.compress.SnappyCodec|
 
 
 ### hive参数设置
