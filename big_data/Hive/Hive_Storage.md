@@ -134,15 +134,54 @@
 	
 ![page_views_parquet_gzip](./pic/parquet_gzip.png)
 
+**Parquet+Lzo**	
 
+	1. 安装Lzo
+	wget http://www.oberhumer.com/opensource/lzo/download/lzo-2.06.tar.gz	tar -zxvf lzo-2.06.tar.gz
+	cd lzo-2.06
+	./configure -enable-shared -prefix=/usr/local/hadoop/lzo/
+	make && make install
+	cp /usr/local/hadoop/lzo/lib/* /usr/lib/	cp /usr/local/hadoop/lzo/lib/* /usr/lib64/
+	vi /etc/profile
+	export PATH=/usr/local//hadoop/lzo/:$PATH
+	export C_INCLUDE_PATH=/usr/local/hadoop/lzo/include/
+	source /etc/profile
+	
+	2. 安装Lzop
+	wget http://www.lzop.org/download/lzop-1.03.tar.gz
+	tar -zxvf lzop-1.03.tar.gz
+	cd lzop-1.03
+	./configure -enable-shared -prefix=/usr/local/hadoop/lzop
+	make  && make install
+	vi /etc/profile
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib64
+	source /etc/profile
 
+	3. ln -s /usr/local/hadoop/lzop/bin/lzop /usr/bin/lzop	4. 测试lzop
+	
+		lzop xxx.log
+		若生成xxx.log.lzo文件，则说明成功
+	
+	5. 安装Hadoop-LZO
+	git或svn 下载https://github.com/twitter/hadoop-lzo
+	cd hadoop-lzo
+	mvn clean package -Dmaven.test.skip=true 
+	tar -cBf - -C target/native/Linux-amd64-64/lib . | tar -xBvf - -C /opt/software/hadoop/lib/native/
+	cp target/hadoop-lzo-0.4.21-SNAPSHOT.jar /opt/software/hadoop/share/hadoop/common/
 
-
-
-
-
-
-
+	6.配置
+	在core-site.xml配置	<property>
+		<name>io.compression.codecs</name>
+		<value>      		org.apache.hadoop.io.compress.GzipCodec,      		org.apache.hadoop.io.compress.DefaultCodec,      		org.apache.hadoop.io.compress.BZip2Codec,      		org.apache.hadoop.io.compress.SnappyCodec,      		com.hadoop.compression.lzo.LzoCodec,      		com.hadoop.compression.lzo.LzopCodec    	</value>	</property>	<property>   		<name>io.compression.codec.lzo.class</name>   		<value>com.hadoop.compression.lzo.LzoCodec</value>	</property>
+	
+	在mapred-site.xml中配置	<property>    		<name>mapreduce.map.output.compress.codec</name>     	<value>com.hadoop.compression.lzo.LzoCodec</value> 	</property> 	<property>    	<name>mapred.child.env</name>    	<value>LD_LIBRARY_PATH=/usr/local/hadoop/lzo/lib</value>	</property>
+		在hadoop-env.sh中配置	export LD_LIBRARY_PATH=/usr/local/hadoop/lzo/lib
+	
+	
+	hive 测试
+	SET hive.exec.compress.output=true;  	SET mapreduce.output.fileoutputformat.compress.codec=com.hadoop.compression.lzo.lzopCodec;	SET mapred.output.compression.codec=com.hadoop.compression.lzo.LzopCodec; 	create table page_views_parquet_lzo ROW FORMAT DELIMITED FIELDS TERMINATED BY "\t"	STORED AS PARQUET	TBLPROPERTIES("parquet.compression"="lzo")	as select * from page_views; 
+	
+![Parquet+Lzo](./pic/parquent_lzo.png)
 
 
 
