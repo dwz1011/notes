@@ -27,7 +27,6 @@
 
 	`按Key进行分组，使用给定的func函数聚合value值, numPartitions设置分区数，提高作业并行度`
 
-
 6. groupByKey(numPartitions)
 
 	`按Key进行分组，返回[K,Iterable[V]]，numPartitions设置分区数，提高作业并行度`
