@@ -688,9 +688,6 @@ List: ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
 
 
 
-<font size=4 color=red><b>注意</b></font>
-
-<table><td bgcolor=pink>结合源码分析</td></table>
 
 
 
